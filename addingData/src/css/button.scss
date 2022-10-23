@@ -1,0 +1,63 @@
+.button {
+  display: flex;
+  height: fit-content;
+  justify-self: center;
+}
+
+@mixin buttonContent($padding-block, $padding-inline, $fontSize) {
+  #button {
+    display: inline-flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    width: 10vh;
+    height: 4vh;
+    padding: 2rem;
+    padding-block: $padding-block;
+    padding-inline: $padding-inline;
+
+    font-family: "Roboto Mono", monospace;
+    font-weight: 700;
+    font-size: $fontSize;
+    text-align: center;
+    writing-mode: horizontal-tb !important;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+
+    background-color: transparent;
+    color: hsl(204 100% 100%);
+    border: 2px solid hsl(228 89% 63%);
+    border-radius: 1rem;
+    z-index: 20;
+
+    grid-area: button;
+    position: relative;
+  }
+
+  #button:is(:hover, :focus) {
+    cursor: pointer;
+    color: hsl(100 100% 80%);
+    background-color: hsl(100 100% 10%);
+    border: 2px solid hsl(100 100% 60%);
+    transition: box-shadow 250ms ease-in-out, outline-offset 250ms ease-in-out;
+
+    box-shadow: 0px 0.6px 4.3px -11px rgba(0, 0, 0, 0.093), 0px 1.3px 10.2px -11px rgba(0, 0, 0, 0.133), 0px 2.5px 19.3px -11px rgba(0, 0, 0, 0.165),
+      0px 4.5px 34.4px -11px rgba(0, 0, 0, 0.197), 0px 8.4px 64.3px -11px hsl(100 100% 60% / 0.8), 0px 20px 154px -11px rgba(0, 0, 0, 0.33);
+  }
+
+  :where(button):where(:not(:active)):focus-visible {
+    outline-offset: 5px;
+  }
+}
+
+@media (max-width: 320px) {
+  @include buttonContent(1rem, 2.5rem, 0.7rem);
+}
+
+@media (min-width: 321px) {
+  @include buttonContent(2rem, 3.5rem, 0.9rem);
+  #button {
+    top: calc(0.4vw + 0.4vh);
+  }
+}

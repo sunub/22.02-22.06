@@ -1,0 +1,16 @@
+.gui-switch {
+    --track-size: calc(2rem * 2);
+    --thumb-transition-duration: .25s;
+    --thumb-position: 0%;
+}
+
+.gui-switch>input::before {
+    transform: translateX(var(--thumb-position));
+
+    transition: transform var(--thumb-transition-duration) ease-out,
+        box-shadow var(--thumb-transition-duration) ease-out;
+}
+
+.gui-switch>input:checked {
+    --thumb-position: calc(var(--track-size) - 100%);
+}

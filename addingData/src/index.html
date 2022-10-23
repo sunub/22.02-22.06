@@ -1,0 +1,60 @@
+<html lang="en" color-scheme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="container">
+      <!--top conetnt-->
+
+      <div class="sunMoon">
+        <button class="theme-toggle" id="theme-toggle" title="Toggle light & dark" aria-label="auto" aria-live="polite">
+          <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+            <!-- inner sun circle-->
+            <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
+
+            <!-- sun beams -->
+            <g class="sun-beams" stroke="currentColor">
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </g>
+            <!-- layer mask -->
+            <mask class="moon" id="moon-mask">
+              <rect x="0" y="0" width="100%" height="100%" fill="white" />
+              <cicle cx="24" cy="10" r="6" fill="black" />
+            </mask>
+          </svg>
+        </button>
+      </div>
+      <!-- switch content -->
+
+      <div class="gui-switch" aria-label="dark" aria-live="polite">
+        <input type="checkbox" role="switch" id="switch" class="switch" />
+      </div>
+
+      <!-- center content -->
+
+      <div class="data-container rad-shadow">
+        <h1 id="text">input data</h1>
+        <input id="inputFile" type="file" />
+      </div>
+      <button type="button" id="button" class="button rad-shadow">inputFile</button>
+
+      <!-- data text content-->
+
+      <div class="data-text">
+        <div class="title">
+          <h1 id="title">data value</h1>
+        </div>
+        <div class="value"></div>
+      </div>
+    </div>
+  </body>
+</html>

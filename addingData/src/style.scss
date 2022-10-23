@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap");
+@import "./css/text.scss";
+@import "./css/button.scss";
+@import "./css/switch.scss";
+@import "./css/switch.css";
+@import url(./css/svg.css);
+
+$color: red;
+$brand-hue: 200;
+$brand-saturation: 100%;
+$brand-lightness: 50%;
+$startDeg: 0deg;
+
+/* dark */
+$brand-dark: hsl(var($brand-hue) calc(var($brand-saturation) / 2) calc(var($brand-lightness) / 1.5));
+$text1-dark: hsl(var($brand-hue) 15% 85%);
+$text2-dark: hsl(var($brand-hue) 5% 65%);
+$surface1-dark: hsl(var($brand-hue) 10% 10%);
+$surface2-dark: hsl(var($brand-hue) 10% 15%);
+$surface3-dark: hsl(var($brand-hue) 5% 20%);
+$surface4-dark: hsl(var($brand-hue) 5% 25%);
+$surface-shadow-dark: var($brand-hue) 50% 3%;
+$shadow-strength-dark: 0.8;
+$border-image: conic-gradient(from var(--startDeg, 0deg), hsl(100 100% 60%), hsl(200 100% 60%), hsl(100 100% 60%));
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: hsl(200 5% 15%);
+
+  width: 100vw;
+  height: 100vh;
+}
+
+@mixin arrangement {
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin basicText {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 200;
+}
+
+.container {
+  display: grid;
+  @include arrangement;
+  width: 100%;
+  height: 100vh;
+  grid:
+    ". title ." 1fr
+    ". button ." auto
+    ". data-text . " 1fr;
+  justify-items: center;
+}
+
+/* center content */
+
+.data-container {
+  display: grid;
+  grid-area: title;
+  color: white;
+  width: calc(15vw + 100px);
+  height: calc(15vh + 100px);
+
+  border: 2rem solid hsl(100 100% 60%);
+  border-image-slice: 1;
+  border-image-source: $border-image;
+
+  @include arrangement();
+  position: relative;
+  top: 5vh;
+  z-index: 10;
+
+  & > #text {
+    text-align: center;
+    @include basicText();
+  }
+
+  input {
+    appearance: none;
+    display: none;
+  }
+}
+
+.rad-shadow {
+  box-shadow: 0 2.8px 2.2px hsl(200 50% 3% / calc(0.8 + 0.03)), 0 6.7px 5.3px hsl(200 50% 3% / calc(0.8 + 0.01)),
+    0 12.5px 10px hsl(200 50% 3% / calc(0.8 + 0.02)), 0 22.3px 17.9px hsl(200 50% 3% / calc(0.8 + 0.02)), 0 41.8px 33.4px hsl(200 50% 3% / calc(0.8 + 0.03)),
+    0 100px 80px hsl(200 50% 3% / 0.8);
+}
+
+@mixin boxSizing($fontSize) {
+  #text {
+    font-size: $fontSize;
+  }
+
+  .data-container {
+    border: 0.8rem solid hsl(100 100% 60%);
+    border-image-slice: 1;
+    border-image-source: conic-gradient(from var(--startDeg, 0deg), hsl(100 100% 60%), hsl(200 100% 60%), hsl(100 100% 60%));
+  }
+}
+
+@media (max-width: 320px) {
+  @include boxSizing(2rem);
+}
+
+@media (min-width: 321px) {
+  @include boxSizing(3.3rem);
+  .data-container {
+    border: 1.5rem solid hsl(100 100% 60%);
+    border-image-slice: 1;
+    width: calc(10vh + 100px);
+    height: calc(10vh + 100px);
+    border-image-source: conic-gradient(from var(--startDeg, 0deg), hsl(100 100% 60%), hsl(200 100% 60%), hsl(100 100% 60%));
+  }
+}

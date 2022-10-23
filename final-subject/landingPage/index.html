@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" dir='ltr'>
+  <head>
+    <title>landingpage</title>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./button.css">
+    <link rel="stylesheet" href="https://use.typekit.net/udc8bgl.css">
+  </head>
+  <body>
+    <h1 class="head_title">Eco System</h1>
+    <div class="title_empty"></div>
+    <button class="theme-toggle" id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite">
+      <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+        <mask class="moon" id="moon-mask">
+          <rect x="0" y="0" width="100%" height="100%" fill="white" />
+          <circle cx="24" cy="10" r="6" fill="black" />
+        </mask>
+        <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
+        <g class="sun-beams" stroke="currentColor">
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+         </g>
+      </svg>
+    </button>
+
+    <article class="empty"></article>
+
+    <div class="stories"> 
+      <section class="user">
+        <article class="story" style="--bg: url('./1.png');">
+          <button class="button--calypso" onclick="location.href='../ecoPlanet/index.html'">
+            <span>Open</span>
+          </button>
+        </article>
+      </section>
+      <section class="user">
+        <article class="story"  style="--bg: url('./2.png');">
+          <button class="button--calypso1" onclick="location.href='../Co2/index.html'">
+            <span>Open</span>
+          </button>
+        </article>
+      </section>
+      <section class="user">
+        <article class="story" style="--bg: url('./3.png');">
+          <button class="button--calypso2" onclick="location.href='../Rain/index.html'">
+            <span>Open</span>
+          </button>
+        </article>
+      </section>
+      <section class="user">
+        <article class="story" style="--bg: url(./4.png);">
+          <button class="button--calypso3" onclick="location.href='../colorRain/index3.html'">
+            <span>Open</span>
+          </button>
+        </article>
+      </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script type="module" src="./index.js"></script>
+    <script src="./theme-toggle.js"></script>
+  </body>
+</html>

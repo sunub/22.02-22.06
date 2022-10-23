@@ -1,0 +1,62 @@
+$thumb-size: 2rem;
+$track-size: $thumb-size * 2;
+$track-padding: 2px;
+$thumb-position: 0%;
+
+$track-inactive: hsl(80 0% 80%);
+$track-active: hsl(80 60% 45%);
+
+$track-color-inactive: ($track-inactive);
+$track-color-active: ($track-active);
+
+$thumb: hsl(0 0% 100%);
+$thumb-highlight: hsl(0 0% 0% / 25%);
+
+$thumb-color: hsl(0 0% 100%);
+$thumb-color-highlight: ($thumb-highlight);
+
+$thumb-transition-duration: 0.25s;
+$isLTR: 1;
+$highlight-size: 0;
+
+.gui-switch {
+  z-index: 30;
+  grid-area: title;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2ch;
+  width: 10vh;
+  flex-direction: column;
+
+  position: relative;
+  top: -10vh;
+
+  cursor: pointer;
+
+  & > input {
+    display: grid;
+    grid: [track] 1fr / [track] 1fr;
+    appearance: none;
+    align-items: center;
+    border: none;
+    box-sizing: content-box;
+    outline-offset: 5px;
+    background: $track-color-inactive;
+
+    inline-size: $track-size;
+    block-size: 2rem;
+    border-radius: $track-size;
+  }
+
+  & > input::before {
+    grid-area: track;
+    content: "";
+    border: none;
+    inline-size: $thumb-size;
+    block-size: $thumb-size;
+    background-color: $thumb-color;
+    border-radius: $thumb-size;
+  }
+}

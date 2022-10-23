@@ -1,0 +1,44 @@
+.data-text {
+  grid-area: data-text;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 200;
+  font-size: 2.5rem;
+  box-sizing: border-box;
+  color: white;
+
+  display: grid;
+  grid: "title" auto "content" 1fr / 1fr;
+  padding: 2rem;
+
+  background: hsl(200 5% 20%);
+  border-radius: 1.5rem;
+  box-shadow: 0 2.8px 2.2px hsl(200 50% 3% / calc(0.8 + 0.03)), 0 6.7px 5.3px hsl(200 50% 3% / calc(0.8 + 0.01)),
+    0 12.5px 10px hsl(200 50% 3% / calc(0.8 + 0.02)), 0 22.3px 17.9px hsl(200 50% 3% / calc(0.8 + 0.02)), 0 41.8px 33.4px hsl(200 50% 3% / calc(0.8 + 0.03)),
+    0 100px 80px hsl(200 50% 3% / 0.8);
+  position: relative;
+  top: -2rem;
+  z-index: 20;
+
+  transition-property: transform, opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+
+  & > .title {
+    grid-area: title;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  & > .value {
+    grid-area: content;
+    display: none;
+
+    font-family: "Roboto Mono", monospace;
+    font-weight: 100;
+    font-size: 0.7em;
+    text-align: center;
+    padding-top: 1em;
+    flex-direction: column;
+  }
+}

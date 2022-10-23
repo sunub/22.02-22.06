@@ -1,0 +1,51 @@
+.sunMoon {
+    display: flex;
+    grid-area: title;
+
+    position: relative;
+    top: -17vh;
+}
+
+.theme-toggle {
+    --size: 2rem;
+
+    background: none;
+    border: none;
+    padding: 0;
+
+    inline-size: var(--size);
+    block-size: var(--size);
+    aspect-ratio: 1;
+    border-radius: 50%;
+
+    cursor: pointer;
+    touch-action: manipulation;
+    outline-offset: 5px;
+}
+
+.theme-toggle>svg {
+    inline-size: 100%;
+    block-size: 100%;
+    stroke-linecap: round;
+}
+
+.test {
+    content: "";
+    background-color: white;
+    width: 2rem;
+    height: 2rem;
+
+    position: absolute;
+    left: 100;
+    top: 100;
+    outline: 1px solid;
+    outline-offset: 5px;
+}
+
+.sun-and-moon>:is(.moon, .sun, .sun-beam) {
+    transform-origin: center center;
+}
+
+.sun-and-moon>:is(.moon, .sun) {
+    fill: var(--icon-fill);
+}

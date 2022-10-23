@@ -1,0 +1,205 @@
+@import"https://unpkg.com/open-props/easings.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+
+.sun-and-moon>:is(.moon,.sun,.sun-beams){
+  transform-origin:center center
+}
+
+.sun-and-moon>:is(.moon,.sun){
+  fill:var(--icon-fill)
+}
+
+.theme-toggle:is(:hover,:focus-visible)>.sun-and-moon>:is(.moon,.sun){
+  fill:var(--icon-fill-hover)
+}
+
+.sun-and-moon>.sun-beams{
+  stroke:var(--icon-fill);stroke-width:2px
+}
+
+.theme-toggle:is(:hover,:focus-visible) .sun-and-moon>.sun-beams{
+  stroke:var(--icon-fill-hover)
+}
+
+[data-theme=dark] .sun-and-moon>.sun{
+  transform:scale(1.75)}
+  [data-theme=dark] .sun-and-moon>.sun-beams{opacity:0
+}
+  [data-theme=dark] .sun-and-moon>.moon>circle{
+    transform:translate(-7px)
+  }
+  
+@supports (cx: 1){
+  [data-theme=dark] .sun-and-moon>.moon>circle{transform:translate(0);cx:17}
+}
+
+@media (prefers-reduced-motion: no-preference){
+  .sun-and-moon>.sun{transition:transform .5s var(--ease-elastic-3)}
+  .sun-and-moon>.sun-beams{transition:transform .5s var(--ease-elastic-4),opacity .5s var(--ease-3)}
+  .sun-and-moon .moon>circle{transition:transform .25s var(--ease-out-5)}
+  
+  @supports (cx: 1){.sun-and-moon .moon>circle{transition:cx .25s var(--ease-out-5)}}
+  [data-theme=dark] .sun-and-moon>.sun{transform:scale(1.75);
+    transition-timing-function:var(--ease-3);transition-duration:.25s}
+    [data-theme=dark] .sun-and-moon>.sun-beams{transform:rotate(-25deg);
+      transition-duration:.15s}[data-theme=dark] 
+      .sun-and-moon>.moon>circle{transition-delay:.25s;
+        transition-duration:.5s}
+}
+
+.theme-toggle{
+  --size: 2rem;--icon-fill: hsl(210 10% 30%);
+  --icon-fill-hover: hsl(210 10% 15%);
+  background:none;
+  border:none;
+  padding:0;
+  inline-size:var(--size);
+  block-size:var(--size);
+  aspect-ratio:1;
+  border-radius:50%;
+  cursor:pointer;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+  outline-offset:5px;
+}
+.head_title{
+  font-size : 2rem;
+  font-family : 'Roboto Slab', serif;
+}
+
+.title_empty{
+  min-block-size: 3vh;
+}
+
+.empty{
+  min-block-size:4vh;
+}
+
+.theme-toggle>svg{
+  inline-size:100%;
+  block-size:100%;
+  stroke-linecap:round
+}
+
+[data-theme=dark] .theme-toggle{
+  --icon-fill: hsl(210 10% 70%);
+  --icon-fill-hover: hsl(210 15% 90%) 
+}
+
+@media (hover: none){
+  .theme-toggle{--size: 48px }
+}
+
+*{
+  box-sizing:border-box;margin:0
+}
+
+html{
+  block-size:100%;color-scheme:light
+}
+
+html[data-theme=dark]{
+  color-scheme:dark
+}
+
+@supports not (color-scheme: dark){
+  html[data-theme=dark]{background:#111}
+}
+
+body{
+  min-block-size:100vh;
+  font-family:system-ui;
+  display:grid;
+  align-content:center;
+  place-items:center;
+  margin: 0;
+}
+
+body > .stories {
+  inline-size: 100vw;
+  block-size: 100vh;
+  box-shadow: 0 5px 2.5px hsla(200, 95%, 3%, 0.037), 0 12px 6.5px hsla(200, 95%, 3%, 0.053), 0 22.5px 13px hsla(200, 95%, 3%, 0.065), 0 40.2px 24px hsla(200, 95%, 3%, 0.077), 0 75.2px 44px hsla(200, 95%, 3%, 0.093), 0 180px 80px hsla(200, 95%, 3%, 0.13);
+}
+
+@meida (hover: hover){
+  body > .stories{
+    border-radius: 3ch;
+  }
+}
+
+@media (hover: hover) and (min-width: 480px) {
+  body > .stories {
+    max-inline-size: 480px;
+    max-block-size: 848px;
+  }
+}
+
+@media (hover: hover) and (max-height: 880px) and (min-width: 720px){
+  body >.stories{
+    max-inline-size: 320px;
+    max-block-size: 568px;
+  }
+}
+
+.stories {
+  display: grid;
+  grid: 1fr / auto-flow 100%;
+  gap: 1ch;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior: contain;
+  touch-action: pan-x;
+}
+
+.user{
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+
+  display: grid;
+  grid : [story] 1fr / [story] 1fr;
+}
+
+.story{
+  grid-area: story;
+  background-size: cover;
+  background-image: var(--bg), linear-gradient(to top, rgb(249, 249, 249), rgb(226, 226, 226));
+  user-select: none;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.story.seen{
+  opacity: 0;
+  pointer-event: none;
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+@keyframes octocat-wave {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  20%,
+  60% {
+    transform: rotate(-25deg);
+  }
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
+}
+
+@-webkit-keyframes octocat-wave{
+  0%,to{transform:rotate(0)}20%,
+  60%{transform:rotate(-25deg)}40%,
+  80%{transform:rotate(10deg)}
+}
+
+@keyframes octocat-wave{
+  0%,
+  to{transform:rotate(0)}20%,
+  60%{transform:rotate(-25deg)}40%,
+  80%{transform:rotate(10deg)}
+}

@@ -1,0 +1,13 @@
+$size: 2rem;
+
+.sunMoon {
+  display: flex;
+  grid-area: title;
+
+  position: relative;
+  top: -17vh;
+
+  & > .theme-toggle {
+    background: none;
+  }
+}

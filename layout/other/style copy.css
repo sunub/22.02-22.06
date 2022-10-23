@@ -1,0 +1,213 @@
+/* root content */
+* {
+    margin: 0;
+    padding: 0;
+    /* 
+    font-family: kudryashev-d-contrast, sans-serif;
+    font-weight: 400;
+    font-style: normal; */
+
+    /* font-family: widescreen, sans-serif;
+    font-weight: 500;
+    font-style: normal; */
+}
+
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --color-text: #eb5c33;
+    --color-text-alt: #9b8b85;
+    --color-link: #9b8b85;
+    --color-link-hover: #eb5c33;
+    --color-button-hover: #fff;
+    font-size: 17px;
+}
+
+main {
+    display: grid;
+
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 100%;
+}
+
+/* main content */
+.title_container {
+    display: grid;
+    grid: "header" 0.75fr "main" auto "." 1fr/ 1fr;
+    height: 100vh;
+    width: 100vw;
+    padding: 1.5rem;
+    color: var(--color-text);
+    background: linear-gradient(#1f1d1c, #170703);
+    justify-items: center;
+    z-index: 10;
+
+    &>.title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 1.5rem;
+
+        &>h2 {
+            font-weight: 400;
+        }
+
+        &>h3 {
+            font-size: 1.2rem;
+            font-weight: 200;
+        }
+    }
+}
+
+.title_itemContainer {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1rem;
+
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+}
+
+img {
+    width: 60px;
+    height: 50px;
+}
+
+.button {
+    display: flex;
+    color: var(--color-button-hover);
+    opacity: 0.5;
+    height: fit-content;
+    text-decoration: none;
+    align-items: flex-end;
+    gap: 0.2rem;
+
+    margin: 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+
+    &>svg {
+        fill: var(--color-button-hover);
+        transform: rotate(45deg);
+    }
+}
+
+/* main content */
+.main_container {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    padding-left: 4.5rem;
+    padding-right: 4.5rem;
+
+    z-index: 5;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: linear-gradient(#1f1d1c, #170703);
+
+    &>.main_title {
+        display: flex;
+        height: 100vh;
+        flex-direction: column;
+        color: var(--color-text);
+        font-family: kudryashev-d-contrast, sans-serif;
+        font-style: normal;
+        justify-content: center;
+        text-transform: uppercase;
+        grid-area: 1 / 1 / 2 / 2;
+
+        &>#left {
+            font-size: 6rem;
+            padding-left: 3rem;
+            font-weight: 100;
+        }
+
+        &>#right {
+            font-size: 6rem;
+            font-weight: 100;
+            text-align: right;
+        }
+    }
+}
+
+.img_container {
+    display: grid;
+    height: 100vh;
+
+    grid: "upper" 1fr "below" 1fr / 1fr;
+    grid-area: 1 / 1 / 2 / 2;
+
+    &>.upper-items {
+        grid-area: upper;
+        display: grid;
+        align-items: flex-start;
+        grid-template-columns: repeat(7, 1fr);
+        column-gap: 3vh;
+    }
+
+    &>.below-items {
+        grid-area: below;
+        display: grid;
+        align-items: flex-end;
+        grid-template-columns: repeat(7, 1fr);
+        column-gap: 3vh;
+    }
+}
+
+.main_item:nth-child(even) {
+    height: 50%;
+}
+
+.main_item:nth-child(odd) {
+    height: 65%;
+}
+
+/* img {
+    height: 100%;
+    width: 100%;
+} */
+
+.main_item {
+    width: 100%;
+    height: 55%;
+    overflow: hidden;
+    cursor: default;
+    background-color: #170703;
+    position: relative;
+    will-change: transform;
+    display: block;
+    transform-origin: 50% 100%;
+    transform: translate(0px, 0px);
+    transform: scale(1);
+}
+
+.item-image {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-position: 50%;
+    background-size: cover;
+    display: block;
+    will-change: transform;
+}
+
+.backward {
+    position: absolute;
+    margin: 1rem;
+    margin-top: 2rem;
+    left: 0;
+    top: 0;
+    color: var(--color-text);
+    text-decoration: none;
+    font-family: widescreen, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
